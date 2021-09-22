@@ -32,18 +32,13 @@ const connect = function () {
     conn.write(input);
   })
 
-  let time = 1000;
-
-  for (let i = 0; i < 50; i++) {
-
-    setInterval(() => {
-
-      conn.write("Move: up");
-      time += 1000;
-
-    }, time);
-
-  }
+  // let time = 1000;
+  // for (let i = 0; i < 50; i++) {
+  //   setInterval(() => {
+  //     conn.write("Move: up");
+  //     time += 1000;
+  //   }, time);
+  // }
 
   return conn;
 };
