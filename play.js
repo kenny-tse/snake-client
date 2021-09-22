@@ -1,4 +1,9 @@
 const net = require("net");
+const readline = require(`readline`);
+
+const rl = readline.createInterface({
+  input: process.stdin
+});
 
 // establishes a connection with the game server
 const connect = function () {
@@ -10,8 +15,12 @@ const connect = function () {
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
-  conn.on("connect", () => {
-    console.log("I connected");
+  conn.on('data', (data) => {
+    console.log('Server says: ', data);
+  });
+
+  conn.on('connect', () => {
+    conn.write('Name: KT');
   });
 
   return conn;
