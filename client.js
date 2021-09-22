@@ -1,5 +1,8 @@
 const net = require("net");
 const readline = require(`readline`);
+const { IP, PORT, INITIALS } = require("./constants");
+
+
 
 const rl = readline.createInterface({
   input: process.stdin
@@ -7,8 +10,8 @@ const rl = readline.createInterface({
 
 const connect = function () {
   const conn = net.createConnection({
-    host: "135.23.223.133",
-    port: 50542
+    host: IP,
+    port: PORT
   });
 
   // interpret incoming data as text
@@ -21,7 +24,7 @@ const connect = function () {
 
   //write to server your initials
   conn.on('connect', () => {
-    conn.write('Name: KT');
+    conn.write(`Name: ${INITIALS}`);
   });
 
   // conn.on('data', (data) => {
