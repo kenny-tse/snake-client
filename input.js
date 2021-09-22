@@ -42,6 +42,18 @@ const setupInput = function (conn) {
     }
   });
 
+  stdin.on("data", (key) => {
+    if (key === 'p') {
+      connection.write("Say: a fellow sssnek!!");
+    }
+  });
+
+  stdin.on("data", (key) => {
+    if (key === 'l') {
+      connection.write("Say: fffear my wrath sssss");
+    }
+  });
+
   return stdin;
 };
 
